@@ -1,0 +1,35 @@
+[2025-06-29T17:53:01.633+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: films_dag_orchestaror.dbt_task scheduled__2025-06-29T17:52:00+00:00 [queued]>
+[2025-06-29T17:53:01.642+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: films_dag_orchestaror.dbt_task scheduled__2025-06-29T17:52:00+00:00 [queued]>
+[2025-06-29T17:53:01.642+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-06-29T17:53:01.654+0000] {taskinstance.py:2191} INFO - Executing <Task(DockerOperator): dbt_task> on 2025-06-29 17:52:00+00:00
+[2025-06-29T17:53:01.658+0000] {standard_task_runner.py:60} INFO - Started process 330 to run task
+[2025-06-29T17:53:01.661+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'films_dag_orchestaror', 'dbt_task', 'scheduled__2025-06-29T17:52:00+00:00', '--job-id', '21', '--raw', '--subdir', 'DAGS_FOLDER/orchestrator.py', '--cfg-path', '/tmp/tmpx3xpnfor']
+[2025-06-29T17:53:01.663+0000] {standard_task_runner.py:88} INFO - Job 21: Subtask dbt_task
+[2025-06-29T17:53:01.718+0000] {task_command.py:423} INFO - Running <TaskInstance: films_dag_orchestaror.dbt_task scheduled__2025-06-29T17:52:00+00:00 [running]> on host 9909ba106c7b
+[2025-06-29T17:53:01.807+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='films_dag_orchestaror' AIRFLOW_CTX_TASK_ID='dbt_task' AIRFLOW_CTX_EXECUTION_DATE='2025-06-29T17:52:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-06-29T17:52:00+00:00'
+[2025-06-29T17:53:01.839+0000] {docker.py:359} INFO - Starting docker container from image ghcr.io/dbt-labs/dbt-postgres:1.9.latest
+[2025-06-29T17:53:01.847+0000] {docker.py:367} WARNING - Using remote engine or docker-in-docker and mounting temporary volume from host is not supported. Falling back to `mount_tmp_dir=False` mode. You can set `mount_tmp_dir` parameter to False to disable mounting and remove the warning
+[2025-06-29T17:53:03.779+0000] {docker.py:429} INFO - [0m17:53:03  Running with dbt=1.9.0
+[2025-06-29T17:53:04.107+0000] {docker.py:429} INFO - [0m17:53:04  Registered adapter: postgres=1.9.0
+[2025-06-29T17:53:04.309+0000] {docker.py:429} INFO - [0m17:53:04  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.my_dbt_project.example
+[2025-06-29T17:53:04.505+0000] {docker.py:429} INFO - [0m17:53:04  Found 3 models, 3 sources, 431 macros
+[2025-06-29T17:53:04.509+0000] {docker.py:429} INFO - [0m17:53:04
+[2025-06-29T17:53:04.510+0000] {docker.py:429} INFO - [0m17:53:04  Concurrency: 4 threads (target='dev')
+[2025-06-29T17:53:04.511+0000] {docker.py:429} INFO - [0m17:53:04
+[2025-06-29T17:53:04.629+0000] {docker.py:429} INFO - [0m17:53:04  1 of 3 START sql table model dev.film_rating ................................... [RUN]
+[2025-06-29T17:53:04.630+0000] {docker.py:429} INFO - [0m17:53:04  2 of 3 START sql table model dev.staging ....................................... [RUN]
+[2025-06-29T17:53:04.842+0000] {docker.py:429} INFO - [0m17:53:04  2 of 3 OK created sql table model dev.staging .................................. [[32mSELECT 200[0m in 0.21s]
+[2025-06-29T17:53:04.845+0000] {docker.py:429} INFO - [0m17:53:04  1 of 3 OK created sql table model dev.film_rating .............................. [[32mSELECT 200[0m in 0.21s]
+[2025-06-29T17:53:04.849+0000] {docker.py:429} INFO - [0m17:53:04  3 of 3 START sql table model dev.film_actors ................................... [RUN]
+[2025-06-29T17:53:04.973+0000] {docker.py:429} INFO - [0m17:53:04  3 of 3 OK created sql table model dev.film_actors .............................. [[32mSELECT 20000[0m in 0.12s]
+[2025-06-29T17:53:04.991+0000] {docker.py:429} INFO - [0m17:53:04
+[2025-06-29T17:53:04.992+0000] {docker.py:429} INFO - [0m17:53:04  Finished running 3 table models in 0 hours 0 minutes and 0.48 seconds (0.48s).
+[2025-06-29T17:53:05.036+0000] {docker.py:429} INFO - [0m17:53:05
+[2025-06-29T17:53:05.037+0000] {docker.py:429} INFO - [0m17:53:05  [32mCompleted successfully[0m
+[2025-06-29T17:53:05.038+0000] {docker.py:429} INFO - [0m17:53:05
+[2025-06-29T17:53:05.039+0000] {docker.py:429} INFO - [0m17:53:05  Done. PASS=3 WARN=0 ERROR=0 SKIP=0 TOTAL=3
+[2025-06-29T17:53:07.027+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=films_dag_orchestaror, task_id=dbt_task, execution_date=20250629T175200, start_date=20250629T175301, end_date=20250629T175307
+[2025-06-29T17:53:07.059+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-06-29T17:53:07.081+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

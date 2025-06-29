@@ -1,0 +1,10 @@
+version: 2
+
+sources: 
+  - name : dev
+    database : destination_db
+    schema : public
+    tables : 
+      - name : film_actors 
+      - name : actors
+      - name : films

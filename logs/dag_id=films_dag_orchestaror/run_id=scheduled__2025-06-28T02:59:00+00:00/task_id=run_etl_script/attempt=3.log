@@ -1,0 +1,24 @@
+[2025-06-29T04:44:12.755+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: films_dag_orchestaror.run_etl_script scheduled__2025-06-28T02:59:00+00:00 [queued]>
+[2025-06-29T04:44:12.768+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: films_dag_orchestaror.run_etl_script scheduled__2025-06-28T02:59:00+00:00 [queued]>
+[2025-06-29T04:44:12.769+0000] {taskinstance.py:2170} INFO - Starting attempt 3 of 1
+[2025-06-29T04:44:12.792+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): run_etl_script> on 2025-06-28 02:59:00+00:00
+[2025-06-29T04:44:12.801+0000] {standard_task_runner.py:60} INFO - Started process 179 to run task
+[2025-06-29T04:44:12.808+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'films_dag_orchestaror', 'run_etl_script', 'scheduled__2025-06-28T02:59:00+00:00', '--job-id', '318', '--raw', '--subdir', 'DAGS_FOLDER/orchestrator.py', '--cfg-path', '/tmp/tmp6v5yr952']
+[2025-06-29T04:44:12.813+0000] {standard_task_runner.py:88} INFO - Job 318: Subtask run_etl_script
+[2025-06-29T04:44:12.957+0000] {task_command.py:423} INFO - Running <TaskInstance: films_dag_orchestaror.run_etl_script scheduled__2025-06-28T02:59:00+00:00 [running]> on host 835dfac2f445
+[2025-06-29T04:44:13.163+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='films_dag_orchestaror' AIRFLOW_CTX_TASK_ID='run_etl_script' AIRFLOW_CTX_EXECUTION_DATE='2025-06-28T02:59:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-06-28T02:59:00+00:00'
+[2025-06-29T04:44:39.117+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/orchestrator.py", line 18, in run_etl_script
+    raise Exception(result.stderr)
+Exception
+[2025-06-29T04:44:39.138+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=films_dag_orchestaror, task_id=run_etl_script, execution_date=20250628T025900, start_date=20250629T044412, end_date=20250629T044439
+[2025-06-29T04:44:39.165+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 318 for task run_etl_script (; 179)
+[2025-06-29T04:44:39.219+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-06-29T04:44:39.250+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
